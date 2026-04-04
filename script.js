@@ -361,7 +361,7 @@ function updateProgressBar() {
     const progress = (scrolled / documentHeight) * 100;
     progressBarFill.style.width = progress + '%';
 
-    const sections = ['hero', 'about', 'experience', 'projects', 'skills', 'contact'];
+    const sections = ['hero', 'about', 'experience', 'projects', 'skills', 'achievements', 'contact'];
     let activeIndex = 0;
     sections.forEach((sectionId, index) => {
         const section = document.getElementById(sectionId);
