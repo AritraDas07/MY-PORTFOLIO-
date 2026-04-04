@@ -1,0 +1,578 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Aritra Das | AI/ML Engineer | Full-Stack & Web3</title>
+    <meta name="description" content="Portfolio of Aritra Das - AI/ML Engineer, Full-Stack Developer, and Startup Founder.">
+
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
+
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;600;700&family=Space+Mono:wght@400;700&family=Caveat:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
+
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+</head>
+<body>
+
+    <!-- Loading Screen -->
+    <div class="loader-overlay">
+        <div class="loader-shapes">
+            <div class="loader-shape-svg loader-shape-1">
+                <svg width="80" height="80" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <rect x="6" y="6" width="88" height="88" rx="8" fill="#66d9ef" stroke="#000" stroke-width="4"/>
+                    <rect x="3" y="3" width="88" height="88" rx="8" fill="#66d9ef" stroke="#000" stroke-width="4"/>
+                    <path d="M35 40 L20 50 L35 60" stroke="#000" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M65 40 L80 50 L65 60" stroke="#000" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+                    <line x1="55" y1="35" x2="45" y2="65" stroke="#000" stroke-width="5" stroke-linecap="round"/>
+                </svg>
+            </div>
+            <div class="loader-shape-svg loader-shape-2">
+                <svg width="80" height="80" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <rect x="6" y="6" width="88" height="88" rx="8" fill="#ffd93d" stroke="#000" stroke-width="4"/>
+                    <rect x="3" y="3" width="88" height="88" rx="8" fill="#ffd93d" stroke="#000" stroke-width="4"/>
+                    <path d="M25 35 L40 50 L25 65" stroke="#000" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+                    <line x1="50" y1="65" x2="75" y2="65" stroke="#000" stroke-width="5" stroke-linecap="round"/>
+                </svg>
+            </div>
+            <div class="loader-shape-svg loader-shape-3">
+                <svg width="80" height="80" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <rect x="6" y="6" width="88" height="88" rx="8" fill="#a8e6cf" stroke="#000" stroke-width="4"/>
+                    <rect x="3" y="3" width="88" height="88" rx="8" fill="#a8e6cf" stroke="#000" stroke-width="4"/>
+                    <rect x="20" y="20" width="60" height="60" rx="3" fill="#ffd93d" stroke="#000" stroke-width="4"/>
+                    <rect x="30" y="20" width="40" height="20" fill="#66d9ef" stroke="#000" stroke-width="3"/>
+                    <rect x="35" y="55" width="30" height="15" rx="2" fill="#000"/>
+                    <circle cx="50" cy="35" r="3" fill="#000"/>
+                </svg>
+            </div>
+        </div>
+        <div class="loader-wrapper" style="font-family:'Space Grotesk'; font-size:4rem; font-weight:bold; color:#000;">
+            <div class="loader-letter">A</div>
+            <div class="loader-letter">D</div>
+        </div>
+        <div class="loader-progress-bar">
+            <div class="loader-progress-fill"></div>
+        </div>
+    </div>
+
+    <!-- Page Content Wrapper -->
+    <div class="page-wrapper" style="background-image: linear-gradient(#e5e5e5 1px, transparent 1px), linear-gradient(90deg, #e5e5e5 1px, transparent 1px); background-size: 30px 30px;">
+    
+    <div class="progress-bar-container">
+        <div class="progress-bar-fill"></div>
+        <div class="progress-checkpoints">
+            <div class="checkpoint" data-section="hero">
+                <div class="checkpoint-dot"></div>
+                <span class="checkpoint-label">Home</span>
+            </div>
+            <div class="checkpoint" data-section="about">
+                <div class="checkpoint-dot"></div>
+                <span class="checkpoint-label">About</span>
+            </div>
+            <div class="checkpoint" data-section="experience">
+                <div class="checkpoint-dot"></div>
+                <span class="checkpoint-label">Journey</span>
+            </div>
+            <div class="checkpoint" data-section="projects">
+                <div class="checkpoint-dot"></div>
+                <span class="checkpoint-label">Projects</span>
+            </div>
+            <div class="checkpoint" data-section="skills">
+                <div class="checkpoint-dot"></div>
+                <span class="checkpoint-label">Skills</span>
+            </div>
+            <div class="checkpoint" data-section="contact">
+                <div class="checkpoint-dot"></div>
+                <span class="checkpoint-label">Contact</span>
+            </div>
+        </div>
+    </div>
+
+    <nav class="navbar">
+        <div class="nav-content">
+            <a href="#" class="nav-brand">AD</a>
+            <div class="nav-right">
+                <a href="#hero" class="nav-link">Home</a>
+                <a href="#about" class="nav-link">About</a>
+                <a href="#experience" class="nav-link">Journey</a>
+                <a href="#projects" class="nav-link">Projects</a>
+                <a href="#skills" class="nav-link">Skills</a>
+                <a href="#contact" class="nav-cta">Get in Touch!</a>
+                <button id="theme-toggle" class="theme-toggle-nav" aria-label="Toggle theme">
+                    <i class="fas fa-moon"></i>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <section class="hero" id="hero">
+        <div class="hero-content">
+            <div class="hero-left">
+                <p class="hero-greeting" id="hero-greeting">Hi there! 👋</p>
+                <h1 class="hero-name">I'm Aritra Das.</h1>
+                <p class="hero-description">
+                    Based in Haldia, WB, I am a 2nd year CS (AI & ML) student and the Co-Founder & CEO of NexForge Studio. I love to work with Artificial Intelligence, Microservices, and Web3 technologies. I'm passionate about building full-stack products, explaining models across pipelines, and participating in national hackathons.
+                </p>
+                <div class="hero-social">
+                    <a href="https://github.com/AritraDas07" target="_blank" class="social-btn">
+                        <i class="fab fa-github"></i>
+                    </a>
+                    <a href="https://linkedin.com/in/aritradas07" target="_blank" class="social-btn">
+                        <i class="fab fa-linkedin"></i>
+                    </a>
+                    <a href="mailto:info.aritradas@gmail.com" target="_blank" class="social-btn">
+                        <i class="fas fa-envelope"></i>
+                    </a>
+                    <a href="https://x.com/aritra_7_jarvis" target="_blank" class="social-btn">
+                        <i class="fab fa-twitter"></i>
+                    </a>
+                    <a href="https://www.instagram.com/aritra_7_jarvis/" target="_blank" class="social-btn">
+                        <i class="fab fa-instagram"></i>
+                    </a>
+                </div>
+                <div class="hero-cta-container">
+                    <a href="#contact" class="btn-cta">Get in Touch!</a>
+                    <a href="https://drive.google.com/drive/folders/1Pn88Xj3E_VM2XLVNYpbA3HmDx7FTlMOq?usp=drive_link" target="_blank" class="btn-cta btn-resume">My Resume</a>
+                </div>
+            </div>
+            <div class="hero-right">
+                <div class="hero-image-wrapper">
+                    <div class="tape-sticker"></div>
+                    <img src="image/aritra.jpg" alt="Aritra Das" style="width: 400px; height: 400px; object-fit: cover; border: 8px solid #000; border-radius: 10px; background: #a8e6cf;">
+                    <div class="deco-code">
+                        <svg width="100" height="100" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <rect x="6" y="6" width="88" height="88" rx="8" fill="#66d9ef" stroke="#000" stroke-width="4"/>
+                            <rect x="3" y="3" width="88" height="88" rx="8" fill="#66d9ef" stroke="#000" stroke-width="4"/>
+                            <path d="M35 40 L20 50 L35 60" stroke="#000" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+                            <path d="M65 40 L80 50 L65 60" stroke="#000" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+                            <line x1="55" y1="35" x2="45" y2="65" stroke="#000" stroke-width="5" stroke-linecap="round"/>
+                        </svg>
+                    </div>
+                    <div class="deco-terminal">
+                        <svg width="100" height="100" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <rect x="6" y="6" width="88" height="88" rx="8" fill="#ffd93d" stroke="#000" stroke-width="4"/>
+                            <rect x="3" y="3" width="88" height="88" rx="8" fill="#ffd93d" stroke="#000" stroke-width="4"/>
+                            <path d="M25 35 L40 50 L25 65" stroke="#000" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+                            <line x1="50" y1="65" x2="75" y2="65" stroke="#000" stroke-width="5" stroke-linecap="round"/>
+                        </svg>
+                    </div>
+                    <div class="deco-floppy">
+                        <svg width="100" height="100" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <rect x="6" y="6" width="88" height="88" rx="8" fill="#a8e6cf" stroke="#000" stroke-width="4"/>
+                            <rect x="3" y="3" width="88" height="88" rx="8" fill="#a8e6cf" stroke="#000" stroke-width="4"/>
+                            <rect x="20" y="20" width="60" height="60" rx="3" fill="#ffd93d" stroke="#000" stroke-width="4"/>
+                            <rect x="30" y="20" width="40" height="20" fill="#66d9ef" stroke="#000" stroke-width="3"/>
+                            <rect x="35" y="55" width="30" height="15" rx="2" fill="#000"/>
+                            <circle cx="50" cy="35" r="3" fill="#000"/>
+                        </svg>
+                    </div>
+                    <div class="deco-label">AI & Web3 Builder</div>
+                </div>
+            </div>
+        </div>
+        <div class="tech-badges">
+            <span class="tech-badge"><i class="fab fa-python"></i> Python</span>
+            <span class="tech-badge"><i class="fab fa-js"></i> TypeScript</span>
+            <span class="tech-badge"><i class="fab fa-react"></i> React / Next.js</span>
+            <span class="tech-badge"><i class="fab fa-ethereum"></i> Solidity</span>
+            <span class="tech-badge"><i class="fas fa-brain"></i> TensorFlow</span>
+            <span class="tech-badge"><i class="fab fa-microsoft"></i> Azure OpenAI</span>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <div class="paper-tear paper-tear-top">
+        <svg width="100%" height="30" viewBox="0 0 1440 30" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M0,0 L0,15 Q10,5 20,15 T40,15 Q50,5 60,15 T80,15 Q90,20 100,15 T120,15 Q130,10 140,15 T160,15 Q170,5 180,15 T200,15 Q210,20 220,15 T240,15 Q250,8 260,15 T280,15 Q290,18 300,15 T320,15 Q330,5 340,15 T360,15 Q370,12 380,15 T400,15 Q410,20 420,15 T440,15 Q450,6 460,15 T480,15 Q490,16 500,15 T520,15 Q530,8 540,15 T560,15 Q570,20 580,15 T600,15 Q610,10 620,15 T640,15 Q650,5 660,15 T680,15 Q690,18 700,15 T720,15 Q730,12 740,15 T760,15 Q770,7 780,15 T800,15 Q810,20 820,15 T840,15 Q850,9 860,15 T880,15 Q890,14 900,15 T920,15 Q930,6 940,15 T960,15 Q970,19 980,15 T1000,15 Q1010,11 1020,15 T1040,15 Q1050,5 1060,15 T1080,15 Q1090,17 1100,15 T1120,15 Q1130,8 1140,15 T1160,15 Q1170,13 1180,15 T1200,15 Q1210,20 1220,15 T1240,15 Q1250,7 1260,15 T1280,15 Q1290,16 1300,15 T1320,15 Q1330,10 1340,15 T1360,15 Q1370,5 1380,15 T1400,15 Q1410,18 1420,15 T1440,15 L1440,0 Z" fill="#ffffff" stroke="none"/>
+            <path d="M0,15 Q10,5 20,15 T40,15 Q50,5 60,15 T80,15 Q90,20 100,15 T120,15 Q130,10 140,15 T160,15 Q170,5 180,15 T200,15 Q210,20 220,15 T240,15 Q250,8 260,15 T280,15 Q290,18 300,15 T320,15 Q330,5 340,15 T360,15 Q370,12 380,15 T400,15 Q410,20 420,15 T440,15 Q450,6 460,15 T480,15 Q490,16 500,15 T520,15 Q530,8 540,15 T560,15 Q570,20 580,15 T600,15 Q610,10 620,15 T640,15 Q650,5 660,15 T680,15 Q690,18 700,15 T720,15 Q730,12 740,15 T760,15 Q770,7 780,15 T800,15 Q810,20 820,15 T840,15 Q850,9 860,15 T880,15 Q890,14 900,15 T920,15 Q930,6 940,15 T960,15 Q970,19 980,15 T1000,15 Q1010,11 1020,15 T1040,15 Q1050,5 1060,15 T1080,15 Q1090,17 1100,15 T1120,15 Q1130,8 1140,15 T1160,15 Q1170,13 1180,15 T1200,15 Q1210,20 1220,15 T1240,15 Q1250,7 1260,15 T1280,15 Q1290,16 1300,15 T1320,15 Q1330,10 1340,15 T1360,15 Q1370,5 1380,15 T1400,15 Q1410,18 1420,15 T1440,15" fill="none" stroke="var(--border)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+    </div>
+
+    <div class="page-gap"></div>
+
+    <div class="paper-tear paper-tear-bottom">
+        <svg width="100%" height="30" viewBox="0 0 1440 30" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M0,0 L0,15 Q10,5 20,15 T40,15 Q50,5 60,15 T80,15 Q90,20 100,15 T120,15 Q130,10 140,15 T160,15 Q170,5 180,15 T200,15 Q210,20 220,15 T240,15 Q250,8 260,15 T280,15 Q290,18 300,15 T320,15 Q330,5 340,15 T360,15 Q370,12 380,15 T400,15 Q410,20 420,15 T440,15 Q450,6 460,15 T480,15 Q490,16 500,15 T520,15 Q530,8 540,15 T560,15 Q570,20 580,15 T600,15 Q610,10 620,15 T640,15 Q650,5 660,15 T680,15 Q690,18 700,15 T720,15 Q730,12 740,15 T760,15 Q770,7 780,15 T800,15 Q810,20 820,15 T840,15 Q850,9 860,15 T880,15 Q890,14 900,15 T920,15 Q930,6 940,15 T960,15 Q970,19 980,15 T1000,15 Q1010,11 1020,15 T1040,15 Q1050,5 1060,15 T1080,15 Q1090,17 1100,15 T1120,15 Q1130,8 1140,15 T1160,15 Q1170,13 1180,15 T1200,15 Q1210,20 1220,15 T1240,15 Q1250,7 1260,15 T1280,15 Q1290,16 1300,15 T1320,15 Q1330,10 1340,15 T1360,15 Q1370,5 1380,15 T1400,15 Q1410,18 1420,15 T1440,15 L1440,30 Z" fill="#ffffff" stroke="none"/>
+            <path d="M0,15 Q10,5 20,15 T40,15 Q50,5 60,15 T80,15 Q90,20 100,15 T120,15 Q130,10 140,15 T160,15 Q170,5 180,15 T200,15 Q210,20 220,15 T240,15 Q250,8 260,15 T280,15 Q290,18 300,15 T320,15 Q330,5 340,15 T360,15 Q370,12 380,15 T400,15 Q410,20 420,15 T440,15 Q450,6 460,15 T480,15 Q490,16 500,15 T520,15 Q530,8 540,15 T560,15 Q570,20 580,15 T600,15 Q610,10 620,15 T640,15 Q650,5 660,15 T680,15 Q690,18 700,15 T720,15 Q730,12 740,15 T760,15 Q770,7 780,15 T800,15 Q810,20 820,15 T840,15 Q850,9 860,15 T880,15 Q890,14 900,15 T920,15 Q930,6 940,15 T960,15 Q970,19 980,15 T1000,15 Q1010,11 1020,15 T1040,15 Q1050,5 1060,15 T1080,15 Q1090,17 1100,15 T1120,15 Q1130,8 1140,15 T1160,15 Q1170,13 1180,15 T1200,15 Q1210,20 1220,15 T1240,15 Q1250,7 1260,15 T1280,15 Q1290,16 1300,15 T1320,15 Q1330,10 1340,15 T1360,15 Q1370,5 1380,15 T1400,15 Q1410,18 1420,15 T1440,15" fill="none" stroke="var(--border)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+    </div>
+
+    <div class="tear-tape-sticker"></div>
+
+    <div class="container">
+
+        <section class="section" id="about">
+            <h2 class="section-title">ABOUT</h2>
+            <div class="card">
+                <p class="text">
+                    Results-driven Software Engineer and Technical Lead with 2+ years of experience in <span class="highlight highlight-yellow">AI/ML</span>. I'm a 2nd-year B.Tech CS (AI & ML) student at <span class="highlight highlight-pink">Haldia Institute of Technology</span>. My contributions have been pivotal in designing and constructing <span class="highlight highlight-cyan">Generative AI systems</span>,
+                    implementing <span class="highlight highlight-green">Blockchain smart contracts</span>, and engaging in <span class="highlight highlight-yellow">full-stack development</span>.
+                </p>
+                <p class="text">
+                    I founded and scaled 2 tech startups, led <span class="highlight highlight-cyan">12-member teams</span>, and delivered 10+ client projects with measurable impact. 
+                </p>
+                <p class="text">
+                    Committed to building explainable, scalable, and decentralized solutions for high-impact real-world challenges. I thrive in <span class="highlight highlight-yellow">hackathons</span>, <span class="highlight highlight-green">open-source</span>, and 0-to-1 product development.
+                </p>
+            </div>
+        </section>
+
+        <!-- Experience timeline & map will be generated by JS -->
+        <section class="section journey-section" id="experience">
+            <h2 class="section-title-center">My Journey</h2>
+            <div class="journey-container">
+                <div class="journey-timeline">
+                    <h3 class="timeline-header">Journey Timeline</h3>
+                    <div class="timeline-list">
+                        <div class="timeline-item-flat" id="exp-1" data-country="India">
+                            <div class="timeline-dot"></div>
+                            <div class="timeline-content-flat">
+                                <h4 class="timeline-title">Co-Founder & CEO @ NexForge Studio</h4>
+                                <p class="timeline-date">Feb 2025 - Present</p>
+                                <p class="timeline-description">Leading full-service digital agency. Guiding teams to deliver end-to-end full-stack web and AI/ML projects for clients.</p>
+                                <p class="timeline-location"><i class="fas fa-map-marker-alt"></i> Haldia, WB</p>
+                            </div>
+                        </div>
+                        <div class="timeline-item-flat" id="exp-2" data-country="Remote">
+                            <div class="timeline-dot"></div>
+                            <div class="timeline-content-flat">
+                                <h4 class="timeline-title">AI Intern @ Codec Technologies</h4>
+                                <p class="timeline-date">Oct 2025 - Dec 2025</p>
+                                <p class="timeline-description">AI Development internship at Google for Education Partner organization.</p>
+                                <p class="timeline-location"><i class="fas fa-map-marker-alt"></i> Remote</p>
+                            </div>
+                        </div>
+                        <div class="timeline-item-flat" id="exp-3" data-country="Remote">
+                            <div class="timeline-dot"></div>
+                            <div class="timeline-content-flat">
+                                <h4 class="timeline-title">Solutions Architecture Virtual Exp @ AWS APAC</h4>
+                                <p class="timeline-date">Nov 2025</p>
+                                <p class="timeline-description">Architected scalable auto-scaling solution on Elastic Beanstalk applying zero trust architecture principles.</p>
+                                <p class="timeline-location"><i class="fas fa-map-marker-alt"></i> Remote</p>
+                            </div>
+                        </div>
+                        <div class="timeline-item-flat" id="exp-4" data-country="Remote">
+                            <div class="timeline-dot"></div>
+                            <div class="timeline-content-flat">
+                                <h4 class="timeline-title">Data Analytics Job Simulation @ Deloitte</h4>
+                                <p class="timeline-date">Nov 2025</p>
+                                <p class="timeline-description">Executed forensic data analysis simulation and built a Tableau dashboard for executive reporting.</p>
+                                <p class="timeline-location"><i class="fas fa-map-marker-alt"></i> Remote</p>
+                            </div>
+                        </div>
+                        <div class="timeline-item-flat" id="exp-5" data-country="Remote">
+                            <div class="timeline-dot"></div>
+                            <div class="timeline-content-flat">
+                                <h4 class="timeline-title">Linguistic Expert @ Josh Talks</h4>
+                                <p class="timeline-date">Jul 2025 - Sept 2025</p>
+                                <p class="timeline-description">Localized and edited multilingual scripts and mentored 20+ creators on brand voice.</p>
+                                <p class="timeline-location"><i class="fas fa-map-marker-alt"></i> Remote</p>
+                            </div>
+                        </div>
+                        <div class="timeline-item-flat" id="exp-6" data-country="India">
+                            <div class="timeline-dot"></div>
+                            <div class="timeline-content-flat">
+                                <h4 class="timeline-title">Full-Stack Dev Intern @ IIT Bombay</h4>
+                                <p class="timeline-date">Jan 2025 - Mar 2025</p>
+                                <p class="timeline-description">Bharati Skillz & Mood Indigo program building full-stack infrastructure.</p>
+                                <p class="timeline-location"><i class="fas fa-map-marker-alt"></i> Mumbai, MH</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="journey-timeline-back">
+                    <svg class="treasure-map-svg" viewBox="0 0 400 600" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
+                        <rect width="400" height="600" fill="#f4e7d7"/>
+                        <g transform="translate(320, 80)">
+                            <circle cx="0" cy="0" r="35" fill="none" stroke="#8B4513" stroke-width="2"/>
+                            <circle cx="0" cy="0" r="30" fill="none" stroke="#8B4513" stroke-width="1"/>
+                            <polygon points="0,-30 5,-10 -5,-10" fill="#D2691E"/>
+                            <polygon points="0,30 5,10 -5,10" fill="#8B4513"/>
+                            <polygon points="30,0 10,5 10,-5" fill="#8B4513"/>
+                            <polygon points="-30,0 -10,5 -10,-5" fill="#8B4513"/>
+                            <text x="0" y="-40" text-anchor="middle" font-size="16" font-weight="bold" fill="#8B4513">N</text>
+                        </g>
+                        <path d="M 80,150 Q 120,200 100,250 T 140,350 Q 160,400 200,420"
+                              stroke="#D2691E" stroke-width="3" fill="none"
+                              stroke-dasharray="8,8" stroke-linecap="round"/>
+                        <circle cx="80" cy="150" r="8" fill="#8B4513" stroke="#654321" stroke-width="2"/>
+                        <circle cx="100" cy="250" r="8" fill="#8B4513" stroke="#654321" stroke-width="2"/>
+                        <circle cx="140" cy="350" r="8" fill="#8B4513" stroke="#654321" stroke-width="2"/>
+                        <g transform="translate(200, 420)">
+                            <circle cx="0" cy="0" r="25" fill="#FFD700" opacity="0.3"/>
+                            <line x1="-15" y1="-15" x2="15" y2="15" stroke="#DC143C" stroke-width="4" stroke-linecap="round"/>
+                            <line x1="15" y1="-15" x2="-15" y2="15" stroke="#DC143C" stroke-width="4" stroke-linecap="round"/>
+                        </g>
+                        <g opacity="0.4">
+                            <polygon points="250,200 270,150 290,200" fill="#8B4513"/>
+                            <polygon points="280,200 300,160 320,200" fill="#A0522D"/>
+                            <polygon points="220,220 245,170 270,220" fill="#8B4513"/>
+                        </g>
+                        <g opacity="0.4">
+                            <polygon points="100,450 110,420 120,450" fill="#228B22"/>
+                            <rect x="108" y="450" width="4" height="15" fill="#8B4513"/>
+                            <polygon points="150,480 160,450 170,480" fill="#228B22"/>
+                            <rect x="158" y="480" width="4" height="15" fill="#8B4513"/>
+                            <polygon points="70,500 80,470 90,500" fill="#228B22"/>
+                            <rect x="78" y="500" width="4" height="15" fill="#8B4513"/>
+                        </g>
+                        <g opacity="0.3">
+                            <path d="M 40,300 Q 50,295 60,300 T 80,300" stroke="#4682B4" stroke-width="2" fill="none"/>
+                            <path d="M 40,310 Q 50,305 60,310 T 80,310" stroke="#4682B4" stroke-width="2" fill="none"/>
+                            <path d="M 280,520 Q 290,515 300,520 T 320,520" stroke="#4682B4" stroke-width="2" fill="none"/>
+                            <path d="M 280,530 Q 290,525 300,530 T 320,530" stroke="#4682B4" stroke-width="2" fill="none"/>
+                        </g>
+                        <rect x="10" y="10" width="380" height="580" fill="none"
+                              stroke="#8B4513" stroke-width="3" stroke-dasharray="10,5"/>
+                    </svg>
+                </div>
+                <div class="journey-map-container">
+                    <div id="journey-map"></div>
+                    <svg class="map-overlay-lines" xmlns="http://www.w3.org/2000/svg">
+                        <defs>
+                            <pattern id="grid" width="80" height="80" patternUnits="userSpaceOnUse">
+                                <path d="M 80 0 L 0 0 0 80" fill="none" stroke="#000" stroke-width="2" opacity="0.8"/>
+                            </pattern>
+                            <pattern id="scratches" width="200" height="200" patternUnits="userSpaceOnUse">
+                                <line x1="10" y1="20" x2="60" y2="25" stroke="#000" stroke-width="2" opacity="0.7"/>
+                                <line x1="100" y1="50" x2="180" y2="48" stroke="#000" stroke-width="1.5" opacity="0.6"/>
+                                <line x1="30" y1="120" x2="90" y2="115" stroke="#000" stroke-width="2" opacity="0.7"/>
+                                <line x1="140" y1="160" x2="195" y2="165" stroke="#000" stroke-width="1.5" opacity="0.6"/>
+                                <line x1="5" y1="180" x2="45" y2="175" stroke="#000" stroke-width="1.5" opacity="0.6"/>
+                            </pattern>
+                        </defs>
+                        <rect width="100%" height="100%" fill="url(#grid)"/>
+                        <rect width="100%" height="100%" fill="url(#scratches)"/>
+                    </svg>
+                </div>
+            </div>
+        </section>
+
+        <section class="section section-compact" id="projects">
+            <div class="creator-showcase">
+                <p class="creator-label">Projects</p>
+                <div class="creator-projects-grid">
+                    <div class="creator-item">
+                        <a href="https://github.com/AritraDas07" target="_blank" class="creator-project">
+                            <span class="creator-name" style="font-size: 1.8rem;">🤖 ANKUSH</span>
+                        </a>
+                        <p class="creator-tagline">Decentralized AI Agent Payment Protocol using ERC-7579 Modular Smart Accounts & Ephemeral Session Keys on Base Sepolia. Finalist @ IIT Kharagpur.</p>
+                        <p style="font-size:0.9rem; margin-top:10px; font-family:'Space Mono';"><strong>Stack:</strong> Solidity, Next.js 15, Wagmi</p>
+                        <a href="https://github.com/AritraDas07" target="_blank" class="creator-github" style="margin-top:15px;"><i class="fab fa-github"></i> View Project</a>
+                    </div>
+                    <div class="creator-item">
+                        <a href="https://github.com/AritraDas07" target="_blank" class="creator-project">
+                            <span class="creator-name" style="font-size: 1.8rem;">⚖️ SAMVIDA</span>
+                        </a>
+                        <p class="creator-tagline">AI & Web3 Contract Lifecycle Platform combining Google Gemini 1.5 Pro semantic analysis with Polygon smart contracts & WebGL fluid UI.</p>
+                        <p style="font-size:0.9rem; margin-top:10px; font-family:'Space Mono';"><strong>Stack:</strong> Solidity, Polygon, Gemini, WebGL</p>
+                        <a href="https://github.com/AritraDas07" target="_blank" class="creator-github" style="margin-top:15px;"><i class="fab fa-github"></i> View Project</a>
+                    </div>
+                    <div class="creator-item">
+                        <a href="https://github.com/AritraDas07" target="_blank" class="creator-project">
+                            <span class="creator-name" style="font-size: 1.8rem;">🧠 Thinklet.AI</span>
+                        </a>
+                        <p class="creator-tagline">Agentic Multimodal RAG System leveraging a Dual-Agent pipeline via Microsoft Semantic Kernel and Hybrid Vector Search on Azure AI.</p>
+                        <p style="font-size:0.9rem; margin-top:10px; font-family:'Space Mono';"><strong>Stack:</strong> Python, Azure OpenAI, Next.js</p>
+                        <a href="https://github.com/AritraDas07" target="_blank" class="creator-github" style="margin-top:15px;"><i class="fab fa-github"></i> View Project</a>
+                    </div>
+                    <div class="creator-item">
+                        <a href="https://github.com/AritraDas07" target="_blank" class="creator-project">
+                            <span class="creator-name" style="font-size: 1.8rem;">🌐 ORBIX</span>
+                        </a>
+                        <p class="creator-tagline">Decentralized treasury dApp on Algorand minting Soulbound NFTs (ARC-3) using atomic transfers for zero fund-loss risk credential issuance.</p>
+                        <p style="font-size:0.9rem; margin-top:10px; font-family:'Space Mono';"><strong>Stack:</strong> Algorand, AlgoKit, React, IPFS</p>
+                        <a href="https://github.com/AritraDas07" target="_blank" class="creator-github" style="margin-top:15px;"><i class="fab fa-github"></i> View Project</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section" id="skills">
+            <h2 class="section-title">SKILLS</h2>
+            <div class="skills-grid-modern">
+                <div class="skill-box">
+                    <div class="skill-box-header">
+                        <i class="fas fa-code skill-icon-large"></i>
+                        <h3 class="skill-box-title">Languages</h3>
+                    </div>
+                    <div class="tech-tags">
+                        <span class="tag"><i class="fab fa-python"></i> Python</span>
+                        <span class="tag"><i class="fab fa-js-square"></i> TypeScript</span>
+                        <span class="tag"><i class="fab fa-js"></i> JavaScript</span>
+                        <span class="tag"><i class="fas fa-cogs"></i> Rust</span>
+                        <span class="tag"><i class="fas fa-database"></i> SQL</span>
+                        <span class="tag"><i class="fab fa-html5"></i> HTML/CSS</span>
+                    </div>
+                </div>
+
+                <div class="skill-box">
+                    <div class="skill-box-header">
+                        <i class="fas fa-brain skill-icon-large"></i>
+                        <h3 class="skill-box-title">AI / Machine Learning</h3>
+                    </div>
+                    <div class="tech-tags">
+                        <span class="tag"><i class="fas fa-robot"></i> TensorFlow</span>
+                        <span class="tag"><i class="fas fa-chart-bar"></i> Scikit-learn / Pandas</span>
+                        <span class="tag"><i class="fas fa-project-diagram"></i> NLP</span>
+                        <span class="tag"><i class="fas fa-microchip"></i> Generative AI / LLMs</span>
+                        <span class="tag"><i class="fas fa-search"></i> RAG Systems</span>
+                        <span class="tag"><i class="fab fa-microsoft"></i> Azure OpenAI</span>
+                        <span class="tag"><i class="fas fa-brain"></i> Semantic Kernel</span>
+                        <span class="tag"><i class="fas fa-cogs"></i> Explainable AI</span>
+                    </div>
+                </div>
+
+                <div class="skill-box">
+                    <div class="skill-box-header">
+                        <i class="fab fa-ethereum skill-icon-large"></i>
+                        <h3 class="skill-box-title">Web3 & Blockchain</h3>
+                    </div>
+                    <div class="tech-tags">
+                        <span class="tag"><i class="fab fa-ethereum"></i> Ethereum</span>
+                        <span class="tag"><i class="fas fa-code"></i> Solidity</span>
+                        <span class="tag"><i class="fas fa-key"></i> ERC-7579</span>
+                        <span class="tag"><i class="fas fa-link"></i> Polygon</span>
+                        <span class="tag"><i class="fas fa-coins"></i> Algorand</span>
+                        <span class="tag"><i class="fas fa-gem"></i> Aptos</span>
+                        <span class="tag"><i class="fas fa-plug"></i> Viem / Ethers.js</span>
+                        <span class="tag"><i class="fas fa-server"></i> IPFS</span>
+                    </div>
+                </div>
+
+                <div class="skill-box">
+                    <div class="skill-box-header">
+                        <i class="fab fa-react skill-icon-large"></i>
+                        <h3 class="skill-box-title">Frontend</h3>
+                    </div>
+                    <div class="tech-tags">
+                        <span class="tag"><i class="fab fa-react"></i> React / Next.js</span>
+                        <span class="tag"><i class="fas fa-wind"></i> Tailwind CSS</span>
+                        <span class="tag"><i class="fas fa-cube"></i> WebGL</span>
+                        <span class="tag"><i class="fas fa-box-open"></i> React Three Fiber</span>
+                    </div>
+                </div>
+
+                <div class="skill-box">
+                    <div class="skill-box-header">
+                        <i class="fab fa-node skill-icon-large"></i>
+                        <h3 class="skill-box-title">Backend & APIs</h3>
+                    </div>
+                    <div class="tech-tags">
+                        <span class="tag"><i class="fab fa-node-js"></i> Node.js</span>
+                        <span class="tag"><i class="fab fa-python"></i> Django</span>
+                        <span class="tag"><i class="fas fa-project-diagram"></i> GraphQL</span>
+                        <span class="tag"><i class="fas fa-plug"></i> WebSockets</span>
+                    </div>
+                </div>
+
+                <div class="skill-box">
+                    <div class="skill-box-header">
+                        <i class="fas fa-cloud skill-icon-large"></i>
+                        <h3 class="skill-box-title">Cloud & DevOps</h3>
+                    </div>
+                    <div class="tech-tags">
+                        <span class="tag"><i class="fab fa-aws"></i> AWS</span>
+                        <span class="tag"><i class="fab fa-microsoft"></i> Azure AI</span>
+                        <span class="tag"><i class="fab fa-docker"></i> Docker</span>
+                        <span class="tag"><i class="fas fa-code-branch"></i> CI/CD</span>
+                        <span class="tag"><i class="fab fa-github"></i> GitHub Actions</span>
+                        <span class="tag"><i class="fas fa-fire"></i> Firebase</span>
+                        <span class="tag"><i class="fas fa-caret-up"></i> Vercel</span>
+                    </div>
+                </div>
+
+                <div class="skill-box">
+                    <div class="skill-box-header">
+                        <i class="fas fa-database skill-icon-large"></i>
+                        <h3 class="skill-box-title">Databases</h3>
+                    </div>
+                    <div class="tech-tags">
+                        <span class="tag"><i class="fas fa-leaf"></i> MongoDB</span>
+                        <span class="tag"><i class="fas fa-elephant"></i> PostgreSQL</span>
+                        <span class="tag"><i class="fas fa-fire"></i> Firestore</span>
+                    </div>
+                </div>
+
+                <div class="skill-box highlight-box">
+                    <div class="skill-box-header">
+                        <i class="fas fa-tools skill-icon-large"></i>
+                        <h3 class="skill-box-title">Tools & Methods</h3>
+                    </div>
+                    <div class="tech-tags">
+                        <span class="tag"><i class="fab fa-git-alt"></i> Git</span>
+                        <span class="tag"><i class="fab fa-figma"></i> Figma</span>
+                        <span class="tag"><i class="fas fa-chart-line"></i> Tableau / Excel</span>
+                        <span class="tag"><i class="fas fa-sync-alt"></i> Agile / Scrum</span>
+                        <span class="tag"><i class="fas fa-users-cog"></i> Technical Leadership</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section" id="contact">
+            <h2 class="section-title">GET IN TOUCH</h2>
+            <div class="contact-container-compact">
+                <p class="contact-intro">Let's build something amazing together.</p>
+                <div class="contact-grid">
+                    <a href="https://linkedin.com/in/aritradas07" target="_blank" class="contact-card">
+                        <i class="fab fa-linkedin"></i>
+                        <span>LinkedIn</span>
+                    </a>
+                    <a href="https://github.com/AritraDas07" target="_blank" class="contact-card">
+                        <i class="fab fa-github"></i>
+                        <span>GitHub</span>
+                    </a>
+                    <a href="mailto:info.aritradas@gmail.com" target="_blank" class="contact-card">
+                        <i class="fas fa-envelope"></i>
+                        <span>Email</span>
+                    </a>
+                    <a href="https://x.com/aritra_7_jarvis" target="_blank" class="contact-card">
+                        <i class="fab fa-twitter"></i>
+                        <span>Twitter (X)</span>
+                    </a>
+                    <a href="https://www.instagram.com/aritra_7_jarvis/" target="_blank" class="contact-card">
+                        <i class="fab fa-instagram"></i>
+                        <span>Instagram</span>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <footer class="footer">
+            <div class="footer-compact">
+                <div class="footer-main">
+                    <div class="footer-brand-compact">
+                        <strong>ARITRA DAS</strong>
+                        <span>Software Engineer & AI Builder</span>
+                    </div>
+                    <div class="footer-nav-compact">
+                        <a href="#hero">Home</a>
+                        <a href="#about">About</a>
+                        <a href="#experience">Journey</a>
+                        <a href="#projects">Projects</a>
+                        <a href="#skills">Skills</a>
+                    </div>
+                    <div class="footer-social-compact">
+                        <a href="https://github.com/AritraDas07" target="_blank" title="GitHub"><i class="fab fa-github"></i></a>
+                        <a href="https://linkedin.com/in/aritradas07" target="_blank" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                        <a href="mailto:info.aritradas@gmail.com" title="Email"><i class="fas fa-envelope"></i></a>
+                        <a href="https://x.com/aritra_7_jarvis" target="_blank" title="Twitter"><i class="fab fa-twitter"></i></a>
+                        <a href="https://www.instagram.com/aritra_7_jarvis/" target="_blank" title="Instagram"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+                <div class="footer-bottom-compact">
+                    <span>© 2025 Aritra Das</span>
+                </div>
+            </div>
+        </footer>
+    </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="script.js"></script>
+</body>
+</html>
