@@ -3558,3 +3558,175 @@ body[data-theme="dark"] .nav-lazyfire {
     padding-bottom: 0.5rem;
   }
 }
+
+/* =====================================================
+   MOBILE FIXES (max-width: 768px)
+   Neo-brutalist responsive adjustments
+   ===================================================== */
+
+/* Fix 6: HERO LAYOUT ORDER - Ensure text appears above image on mobile */
+@media (max-width: 768px) {
+  .hero-content {
+    grid-template-columns: 1fr !important;
+  }
+
+  .hero-left {
+    order: 1;
+  }
+
+  .hero-right {
+    order: 2;
+  }
+}
+
+/* Fix 1: OVERSIZED PROFILE PHOTO - Override hardcoded inline styles */
+@media (max-width: 768px) {
+  .hero img[style*="width:400px"] {
+    width: 260px !important;
+    height: 260px !important;
+  }
+
+  .hero-image-wrapper {
+    display: flex;
+    justify-content: center;
+  }
+}
+
+/* Fix 2: FLOATING DECORATIONS - Hide bleeding SVG elements on mobile */
+@media (max-width: 768px) {
+  .deco-code,
+  .deco-terminal,
+  .deco-floppy {
+    display: none !important;
+  }
+
+  /* Fix 7: General overflow control */
+  .hero {
+    padding: 1.5rem 1rem !important;
+  }
+
+  .page-wrapper {
+    overflow-x: hidden !important;
+  }
+
+  body {
+    overflow-x: hidden !important;
+  }
+}
+
+/* Fix 3: "AI & WEB3 BUILDER" LABEL - Reflow naturally below image */
+@media (max-width: 768px) {
+  .deco-label {
+    position: relative !important;
+    top: auto !important;
+    right: auto !important;
+    bottom: auto !important;
+    left: auto !important;
+    margin-top: 1rem !important;
+    margin-bottom: 0 !important;
+    transform: none !important;
+  }
+}
+
+/* Fix 4: CTA BUTTONS - Column layout for proper wrapping */
+@media (max-width: 768px) {
+  .hero-cta-container {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    gap: 0.75rem !important;
+    width: 100% !important;
+    position: relative !important;
+    top: auto !important;
+    left: auto !important;
+  }
+
+  .btn-cta {
+    width: 100% !important;
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+    text-align: center !important;
+  }
+
+  /* Remove coffee wrapper positioning */
+  .coffee-cta-wrapper {
+    position: relative !important;
+    top: auto !important;
+    left: auto !important;
+    width: 100% !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+  }
+
+  .coffee-arrow,
+  .coffee-arrow-text,
+  .coffee-arrow-img,
+  .btn-coffee,
+  .coffee-icon-img {
+    display: none !important;
+  }
+}
+
+/* Fix 5: TECH BADGES - Clean wrapping with centered alignment */
+@media (max-width: 768px) {
+  .tech-badges {
+    flex-wrap: wrap !important;
+    justify-content: center !important;
+    gap: 0.5rem !important;
+    padding: 0 0.5rem !important;
+  }
+
+  .tech-badge {
+    padding: 0.5rem 0.85rem !important;
+    font-size: 0.8rem !important;
+    min-width: 45%;
+    margin-bottom: 0.25rem !important;
+  }
+}
+
+/* Fix 7: HERO SECTION PADDING - Reduce horizontal padding */
+@media (max-width: 768px) {
+  .hero {
+    padding: 1.5rem 1rem !important;
+  }
+}
+
+/* =====================================================
+   EXTRA SMALL PHONES (max-width: 400px)
+   ===================================================== */
+@media (max-width: 400px) {
+  /* Fix 1: Even smaller image for very small screens */
+  .hero img[style*="width:400px"] {
+    width: 200px !important;
+    height: 200px !important;
+  }
+
+  /* Smaller typography */
+  .hero-name {
+    font-size: 1.75rem !important;
+  }
+
+  .hero-greeting {
+    font-size: 1.2rem !important;
+  }
+
+  .hero-description {
+    font-size: 0.95rem !important;
+  }
+
+  /* Reduced CTA padding */
+  .btn-cta {
+    padding: 0.75rem 1rem !important;
+    font-size: 0.95rem !important;
+  }
+
+  /* Tighter spacing */
+  .hero-content {
+    gap: 1.5rem !important;
+  }
+
+  .hero-cta-container {
+    gap: 0.5rem !important;
+  }
+}
