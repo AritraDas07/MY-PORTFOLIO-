@@ -3564,99 +3564,96 @@ body[data-theme="dark"] .nav-lazyfire {
    Neo-brutalist responsive adjustments
    ===================================================== */
 
-/* Fix 6: HERO LAYOUT ORDER - Ensure text appears above image on mobile */
+/* FIX 1: Hero grid to single column - CRITICAL for layout */
 @media (max-width: 768px) {
   .hero-content {
+    display: grid !important;
     grid-template-columns: 1fr !important;
+    gap: 2.5rem !important;
+    align-items: center;
   }
 
-  .hero-left {
-    order: 1;
+  /* FIX 7: Description max-width to prevent overflow */
+  .hero-description {
+    max-width: 100% !important;
+    font-size: 1rem !important;
   }
 
-  .hero-right {
-    order: 2;
+  .hero {
+    padding: 1.5rem 1rem !important;
   }
 }
 
-/* Fix 1: OVERSIZED PROFILE PHOTO - Override hardcoded inline styles */
+/* FIX 2: Override inline image size - MUST use !important */
 @media (max-width: 768px) {
-  .hero img[style*="width:400px"] {
+  .hero-image-wrapper img {
     width: 260px !important;
     height: 260px !important;
-  }
-
-  .hero-image-wrapper {
-    display: flex;
-    justify-content: center;
+    object-fit: cover !important;
+    border: 6px solid #000 !important;
+    border-radius: 8px !important;
   }
 }
 
-/* Fix 2: FLOATING DECORATIONS - Hide bleeding SVG elements on mobile */
+/* FIX 3: Hide overflow decorations */
 @media (max-width: 768px) {
   .deco-code,
   .deco-terminal,
   .deco-floppy {
     display: none !important;
   }
-
-  /* Fix 7: General overflow control */
-  .hero {
-    padding: 1.5rem 1rem !important;
-  }
-
-  .page-wrapper {
-    overflow-x: hidden !important;
-  }
-
-  body {
-    overflow-x: hidden !important;
-  }
 }
 
-/* Fix 3: "AI & WEB3 BUILDER" LABEL - Reflow naturally below image */
+/* FIX 4: Reflow deco-label below image */
 @media (max-width: 768px) {
+  .hero-image-wrapper {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+  }
+
   .deco-label {
     position: relative !important;
     top: auto !important;
     right: auto !important;
     bottom: auto !important;
     left: auto !important;
-    margin-top: 1rem !important;
-    margin-bottom: 0 !important;
     transform: none !important;
+    margin-top: 0.75rem !important;
+    text-align: center !important;
   }
 }
 
-/* Fix 4: CTA BUTTONS - Column layout for proper wrapping */
+/* FIX 5: Stack CTA buttons full width */
 @media (max-width: 768px) {
   .hero-cta-container {
     display: flex !important;
     flex-direction: column !important;
-    align-items: center !important;
+    align-items: stretch !important;
     gap: 0.75rem !important;
-    width: 100% !important;
-    position: relative !important;
+    position: static !important;
     top: auto !important;
     left: auto !important;
   }
 
   .btn-cta {
     width: 100% !important;
-    margin-left: 0 !important;
-    margin-right: 0 !important;
     text-align: center !important;
+    display: flex !important;
+    justify-content: center !important;
+    box-sizing: border-box !important;
+    padding: 0.85rem 1rem !important;
+    font-size: 1rem !important;
   }
 
-  /* Remove coffee wrapper positioning */
+  /* Neutralize coffee wrapper positioning */
   .coffee-cta-wrapper {
     position: relative !important;
     top: auto !important;
     left: auto !important;
     width: 100% !important;
     display: flex !important;
-    flex-direction: column !important;
-    align-items: center !important;
+    justify-content: center !important;
   }
 
   .coffee-arrow,
@@ -3668,7 +3665,23 @@ body[data-theme="dark"] .nav-lazyfire {
   }
 }
 
-/* Fix 5: TECH BADGES - Clean wrapping with centered alignment */
+/* FIX 6: Wrap social icons */
+@media (max-width: 768px) {
+  .hero-social {
+    display: flex !important;
+    flex-wrap: wrap !important;
+    justify-content: center !important;
+    gap: 0.75rem !important;
+  }
+
+  .social-btn {
+    width: 44px !important;
+    height: 44px !important;
+    box-shadow: 3px 3px 0 #000 !important;
+  }
+}
+
+/* FIX 7: Tech badges wrap cleanly */
 @media (max-width: 768px) {
   .tech-badges {
     flex-wrap: wrap !important;
@@ -3679,16 +3692,20 @@ body[data-theme="dark"] .nav-lazyfire {
 
   .tech-badge {
     padding: 0.5rem 0.85rem !important;
-    font-size: 0.8rem !important;
-    min-width: 45%;
+    font-size: 0.78rem !important;
+    min-width: 44%;
     margin-bottom: 0.25rem !important;
   }
 }
 
-/* Fix 7: HERO SECTION PADDING - Reduce horizontal padding */
+/* FIX 7: General overflow control */
 @media (max-width: 768px) {
-  .hero {
-    padding: 1.5rem 1rem !important;
+  .page-wrapper {
+    overflow-x: hidden !important;
+  }
+
+  body {
+    overflow-x: hidden !important;
   }
 }
 
@@ -3696,10 +3713,12 @@ body[data-theme="dark"] .nav-lazyfire {
    EXTRA SMALL PHONES (max-width: 400px)
    ===================================================== */
 @media (max-width: 400px) {
-  /* Fix 1: Even smaller image for very small screens */
-  .hero img[style*="width:400px"] {
+  /* Even smaller image for very small screens */
+  .hero-image-wrapper img {
     width: 200px !important;
     height: 200px !important;
+    border: 5px solid #000 !important;
+    border-radius: 6px !important;
   }
 
   /* Smaller typography */
@@ -3715,18 +3734,25 @@ body[data-theme="dark"] .nav-lazyfire {
     font-size: 0.95rem !important;
   }
 
-  /* Reduced CTA padding */
   .btn-cta {
-    padding: 0.75rem 1rem !important;
-    font-size: 0.95rem !important;
+    padding: 0.75rem 0.9rem !important;
+    font-size: 0.9rem !important;
   }
 
-  /* Tighter spacing */
-  .hero-content {
-    gap: 1.5rem !important;
+  .social-btn {
+    width: 40px !important;
+    height: 40px !important;
   }
 
-  .hero-cta-container {
-    gap: 0.5rem !important;
+  .tech-badge {
+    font-size: 0.72rem !important;
+    padding: 0.45rem 0.75rem !important;
+  }
+}
+
+/* Dark mode fixes for mobile */
+@media (max-width: 768px) and (prefers-color-scheme: dark) {
+  body[data-theme="dark"] {
+    /* Ensure dark mode styles apply correctly */
   }
 }
