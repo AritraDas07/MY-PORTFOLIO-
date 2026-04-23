@@ -3750,9 +3750,71 @@ body[data-theme="dark"] .nav-lazyfire {
   }
 }
 
-/* Dark mode fixes for mobile */
-@media (max-width: 768px) and (prefers-color-scheme: dark) {
-  body[data-theme="dark"] {
-    /* Ensure dark mode styles apply correctly */
+/* =====================================================
+   CRITICAL MOBILE OVERRIDE - MUST BE LAST
+   Ensures mobile fixes are applied even with caching
+   ===================================================== */
+@media (max-width: 768px) {
+  /* Force single column hero layout */
+  .hero-content {
+    display: grid !important;
+    grid-template-columns: 1fr !important;
+    gap: 2rem !important;
+  }
+
+  /* Hide 2-column desktop styles */
+  .hero-content > .hero-left,
+  .hero-content > .hero-right {
+    width: 100% !important;
+    flex: 1 1 100% !important;
+  }
+
+  /* Hide floating decorations */
+  .deco-code,
+  .deco-terminal,
+  .deco-floppy {
+    display: none !important;
+  }
+
+  /* Fix label positioning */
+  .deco-label {
+    position: relative !important;
+    top: auto !important;
+    right: auto !important;
+    bottom: auto !important;
+    left: auto !important;
+    margin-top: 0.75rem !important;
+  }
+
+  /* Full-width CTA buttons */
+  .hero-cta-container {
+    flex-direction: column !important;
+    align-items: stretch !important;
+  }
+
+  .btn-cta {
+    width: 100% !important;
+  }
+
+  /* Wrap social icons */
+  .hero-social {
+    flex-wrap: wrap !important;
+  }
+
+  .social-btn {
+    width: 44px !important;
+    height: 44px !important;
+  }
+
+  /* Tech badges wrap */
+  .tech-badges {
+    flex-wrap: wrap !important;
+    justify-content: center !important;
+  }
+
+  /* Image sizing */
+  .hero-image-wrapper img {
+    width: 260px !important;
+    height: 260px !important;
   }
 }
